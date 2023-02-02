@@ -4,11 +4,16 @@
 #has run out.
 
 from flask import Flask
-from flask import render_template
+from flask import render_template, request
 
 app = Flask(__name__)
  
 @app.route("/")
 def start():
     return render_template('index.html')
-    
+
+@app.route("/picker", methods=["POST"])
+def picker():
+    if request.method == "POST":
+        data = request.form
+        return render_template('success.html', data=data)
