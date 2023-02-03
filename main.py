@@ -5,6 +5,7 @@
 
 from flask import Flask
 from flask import render_template, request
+import random
 
 app = Flask(__name__)
  
@@ -16,4 +17,9 @@ def start():
 def picker():
     if request.method == "POST":
         data = request.form
+        participants = []
+        for p in request.form:
+            participants.append(request.form[p])
+        random.shuffle(participants)
+        print(participants)
         return render_template('success.html', data=data)
