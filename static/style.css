@@ -1,3 +1,7 @@
  .padded {
     padding: 10px;
  }
+
+ .participant {
+   visibility: hidden;
+ }
